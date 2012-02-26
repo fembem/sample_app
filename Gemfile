@@ -10,8 +10,8 @@ group :development do
 end
 
 group :test do
-  #gem 'ZenTest'
-  #gem 'autotest-rails'
+  gem 'ZenTest', '4.6.2'
+  gem 'autotest-rails', '4.1.2'
   gem 'rspec-rails', '2.0.0.beta.18'
   gem 'spork', '0.8.4'
   gem 'webrat', '0.7.1'
