@@ -9,6 +9,9 @@ group :development do
 end
 
 group :test do
+  gem 'ZenTest'
+  gem 'autotest-rails'
   gem 'rspec-rails', '2.0.0.beta.18'
+  gem 'spork', '0.8.4'
 end
 
