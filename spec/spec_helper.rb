@@ -11,6 +11,7 @@ Spork.prefork do
     require File.dirname(__FILE__) + "/../config/environment"
   end
   require 'rspec/rails'
+  #require 'factory_girl_rails'
   
   # Requires supporting files with custom matchers and macros, etc,
   # in ./support/ and its subdirectories.
@@ -38,4 +39,7 @@ Spork.prefork do
 end
 
 Spork.each_run do
+  # deal with factory girl
+  #Factory.definition_file_paths = [File.join(Rails.root, 'spec')]
+  #Factory.find_definitions
 end

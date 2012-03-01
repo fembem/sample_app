@@ -15,5 +15,8 @@ group :test do
   gem 'rspec-rails', '2.0.0.beta.18'
   gem 'spork', '0.8.4'
   gem 'webrat', '0.7.1'
+  #for reloading by Spork
+  #gem 'factory_girl_rails', '1.0', :require => false
+  gem 'factory_girl_rails', '1.0'
 end
 
