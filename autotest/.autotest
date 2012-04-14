@@ -2,7 +2,8 @@
  
 #require 'redgreen'
 require 'autotest/timestamp'
- 
+
+
 module Autotest::GnomeNotify
 
 	def self.notify title, msg, img
@@ -10,13 +11,13 @@ module Autotest::GnomeNotify
 	end
 
 	Autotest.add_hook :initialize do |at|
-		%w{.git vendor rerun.txt tmp log support}.each {|exception| at.add_exception(exception)}
-	end
-
-	Autotest.add_hook :initialize do |autotest|
-	  autotest.add_mapping(%r%^spec/(requests)/.*rb$%) do|filename, _|
+		
+	  %w{.git vendor rerun.txt tmp log support}.each {|exception| at.add_exception(exception)}
+		
+	  at.add_mapping(%r%^spec/(requests)/.*rb$%) do|filename, _|
 	    filename
 	  end
+	  
 	end
 	
 	Autotest.add_hook :ran_command do |at|
@@ -28,13 +29,13 @@ module Autotest::GnomeNotify
 	    full_sentence, green, failures, garbage, pending = $~.to_a.map(&:to_i)
 	    if output
 		if failures > 0
-		notify "FAIL", "#{output}", "#{image_root}/fail.png"
+		notify "FAILED", "#{output}", "#{image_root}/fail.png"
 	 
 		elsif pending > 0
 		notify "Pending", "#{output}", "#{image_root}/pending.png"
 	 
 		else
-		notify "Pass", "#{output}", "#{image_root}/pass.png"
+		notify "Passed", "#{output}", "#{image_root}/pass.png"
 	 
 		end
 	    end
